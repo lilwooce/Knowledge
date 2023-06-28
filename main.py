@@ -8,7 +8,7 @@ import pytrends
 from pytrends.request import TrendReq
 import streamlit as st
 nlp = spacy.load("en_core_web_sm")
-key = "AIzaSyA8mrH9x44penQpceigfm2jOy-0DI_OQP0"
+key = st.secrets["KG_API_KEY"]
 
 def topicalEntities(query, to_csv=True):
     pytrends = TrendReq(hl="en-US", tz=360)
