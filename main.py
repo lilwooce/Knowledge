@@ -32,7 +32,7 @@ def main():
         st.session_state.visibility = "visible"
         st.session_state.disabled = False
 
-    col1 = st.columns(2)
+    col1 = st.columns(1)
 
     with col1:
         qry = st.text_input(
