@@ -19,13 +19,18 @@ def topicalEntities(query, to_csv=True):
     e = []
     for f in topTopics:
         g = knowledge_graph(key=key, query=query)
-        print(g.columns)
         e.append(g)
+        print(e)
     ı = pd.concat(e)
     if to_csv == True:
         return ı.to_csv('ı.csv')
     else:
         return ı
+    
+def entity_article(kg_df):
+    b = str(kg_df['result.detailedDescription.articleBody'].explode().to_list())
+    doc = nlp(b)
+    spacy.displacy.render(doc, style="ent")
 
 def main():
     # Store the initial value of widgets in session state
