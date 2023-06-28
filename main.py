@@ -40,7 +40,7 @@ def main():
             "type here",
             key="query",
         )
-    if qry:
-        topicalEntities(qry, to_csv=True)
+        if qry:
+            topicalEntities(qry, to_csv=True)
     
 main()
