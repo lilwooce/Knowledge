@@ -38,7 +38,6 @@ def main():
     if qry:
         topicalEntities(qry, to_csv=True)
         df = pd.read_csv("./ı.csv")  # read a CSV file inside the 'data" folder next to 'app.py'
-        df.reindex([['resultScore','result.description','result.name','result.detailedDescription.articleBody']], axis=1)
         # df = pd.read_excel(...)  # will work for Excel files
 
         st.title(f"{qry} Knowledge Graph")  # add a title
