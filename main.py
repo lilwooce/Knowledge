@@ -23,7 +23,7 @@ def topicalEntities(query, to_csv=True):
         e.append(g)
     ı = pd.concat(e)
     if to_csv == True:
-        return ı.to_csv('ı.csv')
+        graphCSV = ı.to_csv('ı.csv')
     else:
         return ı
 
@@ -38,7 +38,7 @@ def main():
 
     if qry:
         csv = topicalEntities(qry, to_csv=True)
-        df = pd.read_csv("./Knowledge/ı.csv")  # read a CSV file inside the 'data" folder next to 'app.py'
+        df = pd.read_csv("./ı.csv")  # read a CSV file inside the 'data" folder next to 'app.py'
         # df = pd.read_excel(...)  # will work for Excel files
 
         st.title(f"{qry} Knowledge Graph")  # add a title
