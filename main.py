@@ -23,6 +23,7 @@ def topicalEntities(query, to_csv=True):
         e.append(g)
     ı = pd.concat(e)
     if to_csv == True:
+        print("returning tocsv")
         return ı.to_csv('ı.csv')
     else:
         return ı
