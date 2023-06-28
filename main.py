@@ -45,7 +45,6 @@ def main():
     if qry:
         topicalEntities(qry, to_csv=True)
         ı = pd.read_csv('ı.csv')
-        ı[['resultScore','result.description','result.name','result.detailedDescription.articleBody']]
 
         print("visualizing")
         st.title(f"{qry} Knowledge Graph")  # add a title
