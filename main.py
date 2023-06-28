@@ -21,11 +21,8 @@ def topicalEntities(query, to_csv=True):
         g = knowledge_graph(key=key, query=query)
         e.append(g)
     ı = pd.concat(e)
-    for x in e:
-        print(x)
     
     if to_csv == True:
-        print("returning tocsv")
         return ı.to_csv('ı.csv')
     else:
         return ı
@@ -47,9 +44,7 @@ def main():
         topicalEntities(str(qry), True)
         ı = pd.read_csv('ı.csv')
 
-        print("visualizing")
         st.title(f"{qry} Knowledge Graph")  # add a title
         st.write(ı)  # visualize my dataframe in the Streamlit app
-        print("done visualizing")
     
 main()
