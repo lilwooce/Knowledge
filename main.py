@@ -11,7 +11,6 @@ nlp = spacy.load("en_core_web_sm")
 key = os.getenv("KG_API_KEY")
 
 def topicalEntities(query, to_csv=True):
-    print(f'query is {query}')
     pytrends = TrendReq(hl="en-US", tz=360)
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
@@ -44,7 +43,7 @@ def main():
     )
 
     if qry:
-        topicalEntities(qry, True)
+        topicalEntities(str(qry), True)
         ı = pd.read_csv('ı.csv')
 
         print("visualizing")
