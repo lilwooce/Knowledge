@@ -19,14 +19,13 @@ def topicalEntities(query, to_csv=True):
     e = []
     for f in topTopics:
         g = knowledge_graph(key=key, query=query)
-        g[['result.name',"result.@id"]]
+        print(g.attrs)
         e.append(g)
-        print(e)
-    df = pd.concat(e)
+    ı = pd.concat(e)
     if to_csv == True:
-        return df.to_csv('df.csv')
+        return ı.to_csv('ı.csv')
     else:
-        return df
+        return ı
     
 def entity_article(kg_df):
     b = str(kg_df['result.detailedDescription.articleBody'].explode().to_list())
@@ -44,12 +43,12 @@ def main():
 
     if qry:
         topicalEntities(qry, to_csv=True)
-        df = pd.read_csv('df.csv')
-        df[['resultScore','result.description','result.name','result.detailedDescription.articleBody']]
+        ı = pd.read_csv('ı.csv')
+        ı[['resultScore','result.description','result.name','result.detailedDescription.articleBody']]
 
         print("visualizing")
         st.title(f"{qry} Knowledge Graph")  # add a title
-        st.write(df)  # visualize my dataframe in the Streamlit app
+        st.write(ı)  # visualize my dataframe in the Streamlit app
         print("done visualizing")
     
 main()
