@@ -19,7 +19,7 @@ def topicalEntities(query, to_csv=True):
     e = []
     for f in topTopics:
         g = knowledge_graph(key=key, query=query)
-        print(g)
+        print(g.columns)
         e.append(g)
     ı = pd.concat(e)
     if to_csv == True:
