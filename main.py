@@ -20,7 +20,9 @@ def topicalEntities(query, to_csv=True):
     for f in topTopics:
         g = knowledge_graph(key=key, query=query)
         e.append(g)
+    print(e)
     ı = pd.concat(e)
+    print(ı)
     if to_csv == True:
         return ı.to_csv('ı.csv')
     else:
@@ -40,7 +42,9 @@ def main():
         df = pd.read_csv("./ı.csv")  # read a CSV file inside the 'data" folder next to 'app.py'
         # df = pd.read_excel(...)  # will work for Excel files
 
+        print("visualizing")
         st.title(f"{qry} Knowledge Graph")  # add a title
         st.write(df)  # visualize my dataframe in the Streamlit app
+        print("done visualizing")
     
 main()
