@@ -44,14 +44,12 @@ def main():
     )
 
     if qry:
-        #topicalEntities(str(qry), True)
-        #ı = pd.read_csv('ı.csv')
-        kg_df = knowledge_graph(key=key, query=qry)
-        kg_df[['resultScore','result.name',"result.@id", "result.description"]]
+        topicalEntities(str(qry), True)
+        ı = pd.read_csv('ı.csv')
 
         print("visualizing")
         st.title(f"{qry} Knowledge Graph")  # add a title
-        st.write(kg_df)  # visualize my dataframe in the Streamlit app
+        st.write(ı)  # visualize my dataframe in the Streamlit app
         print("done visualizing")
     
 main()
