@@ -37,7 +37,7 @@ def main():
     )
 
     if qry:
-        csv = topicalEntities(qry, to_csv=True)
+        topicalEntities(qry, to_csv=True)
         df = pd.read_csv("./ı.csv")  # read a CSV file inside the 'data" folder next to 'app.py'
         df[['resultScore','result.description','result.name','result.detailedDescription.articleBody']]
         # df = pd.read_excel(...)  # will work for Excel files
