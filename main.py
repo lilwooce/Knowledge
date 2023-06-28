@@ -15,6 +15,7 @@ def topicalEntities(query, to_csv=True):
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
     topRelated = relTop.get(query).get('top')
+    print(topRelated)
     topTopics = topRelated['topic_title'].explode().to_list()
     e = []
     for f in topTopics:
@@ -34,7 +35,7 @@ def main():
         "type here",
         key="query",
     )
-    
+
     if qry:
         topicalEntities(qry, to_csv=True)
     
