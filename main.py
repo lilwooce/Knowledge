@@ -19,6 +19,7 @@ def topicalEntities(query, to_csv=True):
     e = []
     for f in topTopics:
         g = knowledge_graph(key=key, query=query)
+        print(g.abs)
         print(g.attrs)
         e.append(g)
     ı = pd.concat(e)
@@ -38,7 +39,6 @@ def main():
 
     qry = st.text_input(
         "What do you want to find the top related queries for?\n",
-        "type here",
         key="query",
     )
 
