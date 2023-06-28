@@ -22,6 +22,7 @@ def topicalEntities(query, to_csv=True):
         g = knowledge_graph(key=key, query=query)
         e.append(g)
     ı = pd.concat(e)
+    print(e)
     if to_csv == True:
         return ı.to_csv('ı.csv')
     else:
