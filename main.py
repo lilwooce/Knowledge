@@ -37,6 +37,11 @@ def main():
     )
 
     if qry:
-        topicalEntities(qry, to_csv=True)
+        csv = topicalEntities(qry, to_csv=True)
+        df = pd.read_csv("./Knowledge/ı.csv")  # read a CSV file inside the 'data" folder next to 'app.py'
+        # df = pd.read_excel(...)  # will work for Excel files
+
+        st.title(f"{qry} Knowledge Graph")  # add a title
+        st.write(df)  # visualize my dataframe in the Streamlit app
     
 main()
