@@ -18,7 +18,8 @@ def topicalEntities(query, to_csv=True):
     print("printing top related after this")
     print(topRelated)
     topTopics = topRelated['topic_title'].explode().to_list()
-    f = knowledge_graph(key=key, query=f)
+    g = knowledge_graph(key=key, query=query)
+    e.append(g)
     e = []
     for f in topTopics:
         print("f is below this")
