@@ -15,10 +15,12 @@ def topicalEntities(query, to_csv=True):
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
     topRelated = relTop.get(query).get('top')
+    print("printing top related after this")
     print(topRelated)
     topTopics = topRelated['topic_title'].explode().to_list()
     e = []
     for f in topTopics:
+        print("f is below this")
         print(f)
         g = knowledge_graph(key=key, query=query)
         e.append(g)
