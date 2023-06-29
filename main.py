@@ -17,9 +17,9 @@ def topicalEntities(query, to_csv=True):
     topRelated = relTop.get(query).get('top')
     print(topRelated)
     topTopics = topRelated['topic_title'].explode().to_list()
-    print(topTopics)
     e = []
     for f in topTopics:
+        print(f)
         g = knowledge_graph(key=key, query=query)
         e.append(g)
     ı = pd.concat(e)
