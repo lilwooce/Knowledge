@@ -7,7 +7,6 @@ import spacy
 import pytrends
 from pytrends.request import TrendReq
 import streamlit as st
-nlp = spacy.load("en_core_web_sm")
 key = st.secrets["KG_API_KEY"]
 
 def topicalEntities(query, to_csv=True):
@@ -28,11 +27,6 @@ def topicalEntities(query, to_csv=True):
         return ı.to_csv('ı.csv')
     else:
         return ı
-    
-def entity_article(kg_df):
-    b = str(kg_df['result.detailedDescription.articleBody'].explode().to_list())
-    doc = nlp(b)
-    spacy.displacy.render(doc, style="ent")
 
 def main():
     # Store the initial value of widgets in session state
