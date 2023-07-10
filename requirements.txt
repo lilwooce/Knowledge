@@ -2,4 +2,4 @@ advertools
 pytrends
 pandas
 spacy
-
+git+https://github.com/GeneralMills/pytrends
