@@ -37,7 +37,8 @@ class CookieTrendReq(TrendReq):
         return dict(filter(lambda i: i[0] == 'NID', cookies.items()))
 
 def topicalEntities(query, to_csv=True):
-    pytrends = CookieTrendReq(TrendReq).GetGoogleCookie()
+    pytrends = TrendReq(hl='en-US', tz=360)
+    pytrends = CookieTrendReq(pytrends).GetGoogleCookie()
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
     topRelated = relTop.get(query).get('top')
