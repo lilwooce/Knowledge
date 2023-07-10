@@ -55,7 +55,16 @@ def topicalEntities(query, to_csv=True):
     else:
         return ı
 
+def relEntities(qry, to_csv=True):
+    g = knowledge_graph(key=key, query=qry)
+    e=[]
+    e.append(g)
+    ı = pd.concat(e)
 
+    if to_csv == True:
+        return ı.to_csv('ı.csv')
+    else:
+        return ı
 
 def main():
     # Store the initial value of widgets in session state
@@ -66,7 +75,7 @@ def main():
     )
 
     if qry:
-        topicalEntities(str(qry), True)
+        relEntities(str(qry), True)
         ı = pd.read_csv('ı.csv')
 
         st.title(f"{qry} Knowledge Graph")  # add a title
