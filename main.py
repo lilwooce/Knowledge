@@ -10,7 +10,7 @@ import streamlit as st
 key = st.secrets["KG_API_KEY"]
 
 def topicalEntities(query, to_csv=True):
-    pytrends = TrendReq(hl="en-US", tz=360)
+    pytrends = TrendReq()
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
     topRelated = relTop.get(query).get('top')
