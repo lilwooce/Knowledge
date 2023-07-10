@@ -37,7 +37,8 @@ class CookieTrendReq(TrendReq):
         return dict(filter(lambda i: i[0] == 'NID', cookies.items()))
 
 def topicalEntities(query, to_csv=True):
-    pytrends = TrendReq(hl='en-US', tz=360)
+    #cookiesDict = CookieTrendReq(TrendReq).GetGoogleCookie()
+    pytrends = TrendReq(hl='en-US', tz=360, timeout=(10,25), proxies=['https://34.203.233.13:80',], retries=2, backoff_factor=0.1, requests_args={'verify':False})
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
     topRelated = relTop.get(query).get('top')
@@ -61,7 +62,7 @@ def main():
     # Store the initial value of widgets in session state
 
     qry = st.text_input(
-        "What do you want to find the top related queries for?\n",
+        "What do you want to find the top related entities and queries for?\n",
         key="query",
     )
 
