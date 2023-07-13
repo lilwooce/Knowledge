@@ -80,7 +80,7 @@ def main():
         key="query",
     )
     relQry = st.text_input(
-        "What do you want to find the top related entities and queries for?\n",
+        "What do you want to find the top related queries for?\n",
         key="relQuery",
     )
 
