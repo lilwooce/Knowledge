@@ -81,7 +81,7 @@ def main():
     )
     relQry = st.text_input(
         "What do you want to find the top related entities and queries for?\n",
-        key="query",
+        key="relQuery",
     )
 
     if qry:
