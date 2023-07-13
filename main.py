@@ -92,9 +92,9 @@ def main():
         st.write(ı)  # visualize my dataframe in the Streamlit app
     
     if relQry:
-        relQ = relQueries(qry)
+        relQ = relQueries(relQry)
 
-        st.title(f"Related Queries for {qry}")  # add a title
+        st.title(f"Related Queries for {relQry}")  # add a title
         st.write(relQ)  # visualize my dataframe in the Streamlit app
     
 main()
