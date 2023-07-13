@@ -1,12 +1,10 @@
 import os
 import streamlit as st
 from advertools import knowledge_graph
-import pytrends
 import pandas as pd
 import spacy
 import pytrends
 from pytrends.request import TrendReq
-import streamlit as st
 key = st.secrets["KG_API_KEY"]
 
 cookies = {
@@ -66,10 +64,22 @@ def relEntities(qry, to_csv=True):
     else:
         return ı
 
+def relQueries(query):
+    pytrends = TrendReq(hl='en-US', tz=360)
+    pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
+    relTop = pytrends.related_topics()
+    topRelated = relTop.get(query).get('top')
+    topTopics = topRelated['topic_title'].explode().to_list()
+    return topTopics
+
 def main():
     # Store the initial value of widgets in session state
 
     qry = st.text_input(
+        "What do you want to find the top related entities and queries for?\n",
+        key="query",
+    )
+    relQry = st.text_input(
         "What do you want to find the top related entities and queries for?\n",
         key="query",
     )
@@ -80,6 +90,12 @@ def main():
 
         st.title(f"{qry} Knowledge Graph")  # add a title
         st.write(ı)  # visualize my dataframe in the Streamlit app
+    
+    if relQry:
+        relQ = relQueries(qry)
+
+        st.title(f"Related Queries for {qry}")  # add a title
+        st.write(relQ)  # visualize my dataframe in the Streamlit app
     
 main()
 

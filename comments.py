@@ -49,3 +49,10 @@ jlh_graph_list_.head(50)'''
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0',
 }'''
+
+'''time.sleep(61)
+    relatedQueries = relQueries(qry)
+
+    for qry in relatedQueries:
+        createArticle(qry)
+        time.sleep(61)'''
