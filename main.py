@@ -34,8 +34,14 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0',
 }
 
+requests_args = {
+    'headers': {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+    }
+}
+
 def topicalEntities(query, to_csv=True):
-    pytrends = TrendReq(hl='en-US', tz=360)
+    pytrends = TrendReq(requests_args=requests_args, hl='en-US', tz=360)
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
     topRelated = relTop.get(query).get('top')
@@ -65,7 +71,7 @@ def relEntities(qry, to_csv=True):
         return ı
 
 def relQueries(query):
-    pytrends = TrendReq(hl='en-US', tz=360)
+    pytrends = TrendReq(requests_args=requests_args, hl='en-US', tz=360)
     pytrends.build_payload(kw_list=[query], cat=184, timeframe="today 12-m")
     relTop = pytrends.related_topics()
     topRelated = relTop.get(query).get('top')
